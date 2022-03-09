@@ -13,7 +13,6 @@ namespace Ultimate_Port_Scanner
 {
     public class TCPPortScanner:PortScannerBase
     {
-        private PortList portList;
         public int tcpTimeout;
         // The TCP client for port scanning 
         private TcpClient tcpClient;

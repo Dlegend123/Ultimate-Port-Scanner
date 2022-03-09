@@ -20,17 +20,16 @@ namespace Ultimate_Port_Scanner
         public void SetClientToBrodcastMode()
         {
             if (this.Active)
-                this.Client.SetSocketOption(SocketOptionLevel.Socket,
-                                          SocketOptionName.Broadcast, 0);
+                this.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, 0);
         }
         //now use this class
         //MAC_ADDRESS should  look like '013FA049'
-        private void WakeFunction(string MAC_ADDRESS,int port)
+        private void WakeFunction(string MAC_ADDRESS)
         {
             WakeOnLAN client = new WakeOnLAN();
             client.Connect(new
                IPAddress(0xffffffff),  //255.255.255.255  i.e broadcast
-               port);
+               0x2fff); // port=12287 let's use this one
             client.SetClientToBrodcastMode();
             //set sending bites
             int counter = 0;
@@ -45,8 +44,7 @@ namespace Ultimate_Port_Scanner
                 int i = 0;
                 for (int z = 0; z < 6; z++)
                 {
-                    bytes[counter++] =
-                        byte.Parse(MAC_ADDRESS.Substring(i, 2), NumberStyles.HexNumber);
+                    bytes[counter++] = byte.Parse(MAC_ADDRESS.Substring(i, 2), NumberStyles.HexNumber);
                     i += 2;
                 }
             }
