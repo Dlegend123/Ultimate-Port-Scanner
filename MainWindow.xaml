@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Ultimate_Port_Scanner"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/417323948.jpg"/>
+    </Window.Background>
     <Grid>
         
     </Grid>
